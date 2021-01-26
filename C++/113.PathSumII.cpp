@@ -1,6 +1,6 @@
-/* I have used recursion with DFS. Notice the return datatype. We are supposed to 
+/* I have used recursion with DFS. Notice the return datatype. We are supposed to
    find all the possible routes for a given target(sum). So, I take the classic
-   base condition(if root is NULL). Then I call a function thus passing the root, 
+   base condition(if root is NULL). Then I call a function thus passing the root,
    sum and vector as parameters.
 */
 class Solution {
@@ -14,7 +14,7 @@ public:
         checkPath(root, sum, v);
         return path;
     }
-    
+
     void checkPath(TreeNode* root, int sum, vector<int> v)
     {
         /* In the function definition, I have traversed the tree through
@@ -27,14 +27,14 @@ public:
            to the main function and we get our final routes!
         */
         v.push_back(root->val);   //v holding current root value
-        
+
         if(root->left==NULL && root->right==NULL && sum==root->val)
-               path.push_back(v);
+            path.push_back(v);
         if(root->left!=NULL)
             checkPath(root->left, sum-root->val, v);
         if(root->right!=NULL)
             checkPath(root->right, sum-root->val, v);
-        //v.pop_back();         
+        //v.pop_back();
     }
 };
 
